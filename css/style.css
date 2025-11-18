@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(180deg, #ff4d6d, #b51734, #ffccd5);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CARD */
+.card-login {
+    background: #ffffff55;
+    padding: 40px;
+    width: 350px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0px 0px 20px #ff1e4f55;
+    text-align: center;
+    animation: aparecer 1.5s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.txt-senha {
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* INPUT BONITO */
+.input-area {
+    position: relative;
+    width: 100%;
+}
+
+.input-senha {
+    width: 100%;
+    padding: 12px 40px 12px 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    outline: none;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.input-senha:focus {
+    box-shadow: 0px 0px 10px #ff005d;
+}
+
+.icon {
+    position: absolute;
+    right: 10px;
+    top: 11px;
+    color: #ff477e;
+    font-size: 1.3rem;
+}
+
+/* BOTÃO VERIFICAR */
+.buttonSenha {
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+    background: #ff004c;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buttonSenha:hover {
+    background: #ff1a66;
+    transform: scale(1.03);
+}
+
+.buttonSenha i {
+    margin-right: 5px;
+}
+
+/* BOTÃO DA CARTINHA BLOQUEADO */
+.buttonCarta {
+    display: block;
+    text-decoration: none;
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    background: #ff7b9c;
+    color: white;
+    opacity: 0.4;
+    pointer-events: none;
+    transition: 0.4s;
+}
+
+.buttonCarta i {
+    margin-left: 5px;
+}
+
+.buttonCarta.liberado {
+    background: #ff0048;
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #ff005d;
+}

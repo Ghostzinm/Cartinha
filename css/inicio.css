@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* fundo com gradiente suave */
+.conteiner-principal {
+    width: 100%;
+    height: 100vh;
+    padding-top: 80px;
+    background: linear-gradient(180deg, #ffb3c6, #ff8fab, #ff758f);
+    position: relative;
+    z-index: 2;
+}
+
+/* nome do casal */
+.nome {
+    font-size: 1.4rem;
+    color: #680000;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    animation: descer 1.2s ease forwards;
+}
+
+@keyframes descer {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* título principal */
+.Titulo {
+    font-size: 3rem;
+    color: #d10000;
+    font-weight: 700;
+    text-align: center;
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    height: 220px;
+    margin-bottom: 0px;
+    animation: aparecer 1.5s ease forwards;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: scale(0.85); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+.Titulo i {
+    margin-left: 12px;
+    color: #ff0037;
+    animation: pulsar 1.5s infinite;
+}
+
+/* coração pulsante */
+@keyframes pulsar {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+
+/* contador */
+.contador-box {
+    text-align: center;
+    margin-top: -40px;
+}
+
+.texto-info {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #800020;
+    animation: descer 1.4s ease forwards;
+}
+
+.contador {
+    font-size: 30px;
+    font-weight: bold;
+    color: #b3003c;
+    text-shadow: 0 0 12px rgba(255,40,80,0.5);
+    animation: aparecer 1.8s ease forwards;
+}
+
+
+/* ❤️ animação de corações no fundo ❤️ */
+
+.hearts::before,
+.hearts::after {
+    content: "❤️";
+    position: absolute;
+    font-size: 40px;
+    animation: flutuar 8s infinite linear;
+    opacity: 0.5;
+}
+
+.hearts::before {
+    left: 15%;
+    top: 120%;
+    animation-delay: 1s;
+}
+
+.hearts::after {
+    left: 70%;
+    top: 130%;
+    animation-delay: 3s;
+}
+
+@keyframes flutuar {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-150vh) scale(1.4);
+        opacity: 0;
+    }
+}
