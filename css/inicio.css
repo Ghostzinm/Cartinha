@@ -1,125 +1,382 @@
+/* RESET */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    overflow: hidden;
     font-family: 'Poppins', sans-serif;
+    background: #0f0f0f;
+    color: #ffffff;
 }
 
-/* fundo com gradiente suave */
-.conteiner-principal {
-    width: 100%;
-    height: 100vh;
-    padding-top: 80px;
-    background: linear-gradient(180deg, #ffb3c6, #ff8fab, #ff758f);
-    position: relative;
-    z-index: 2;
+/* SEÇÕES */
+section {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 50px 25px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
 }
 
-/* nome do casal */
+/* TOPO */
 .nome {
-    font-size: 1.4rem;
-    color: #680000;
-    font-weight: 600;
-    letter-spacing: 1px;
     display: flex;
     justify-content: center;
-    animation: descer 1.2s ease forwards;
-}
-
-@keyframes descer {
-    from { opacity: 0; transform: translateY(-20px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-/* título principal */
-.Titulo {
-    font-size: 3rem;
-    color: #d10000;
-    font-weight: 700;
-    text-align: center;
-    display: flex;  
-    justify-content: center;
     align-items: center;
-    height: 220px;
-    margin-bottom: 0px;
-    animation: aparecer 1.5s ease forwards;
+    gap: 8px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ff4d6d;
+    animation: fadeDown 1s ease forwards;
 }
 
-@keyframes aparecer {
-    from { opacity: 0; transform: scale(0.85); }
-    to   { opacity: 1; transform: scale(1); }
+.Titulo {
+    margin: 40px 0 10px;
+    text-align: center;
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: #ff2a6d;
+    animation: fadeScale 1.2s ease forwards;
 }
 
 .Titulo i {
-    margin-left: 12px;
+    margin-left: 10px;
     color: #ff0037;
-    animation: pulsar 1.5s infinite;
+    animation: pulse 1.4s infinite;
 }
 
-/* coração pulsante */
-@keyframes pulsar {
+.frase-romantica {
+    text-align: center;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #ff6b8a;
+    margin-bottom: 40px;
+}
+
+/* CONTADOR */
+.contador-box {
+    text-align: center;
+}
+
+.texto-info {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ff4d6d;
+}
+
+.contador {
+    margin-top: 10px;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #ff85a1;
+    text-shadow: 0 0 14px rgba(255,40,80,0.5);
+}
+
+/* GALERIA / VARAL */
+.galeria-section {
+    text-align: center;
+}
+
+.galeria {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-top: 35px;
+}
+
+/* FIO DO VARAL */
+.varal-container {
+    position: relative;
+    padding-top: 40px;
+}
+
+.varal-container::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 5%;
+    width: 90%;
+    height: 2px;
+    background: linear-gradient(
+        to right,
+        rgba(255,255,255,0.2),
+        rgba(255,255,255,0.6),
+        rgba(255,255,255,0.2)
+    );
+    border-radius: 10px;
+}
+
+/* POLAROID */
+.foto {
+    position: relative;
+    width: 150px;
+    aspect-ratio: 1 / 1.15;
+    background: #fff;
+    border-radius: 14px;
+    padding: 10px 10px 18px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    overflow: hidden;
+    transform: rotate(-2deg);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.foto:nth-child(2) { transform: rotate(2deg); }
+.foto:nth-child(3) { transform: rotate(-1deg); }
+
+.foto:hover {
+    transform: translateY(-6px) rotate(0deg) scale(1.05);
+    box-shadow: 0 18px 40px rgba(255,0,80,0.45);
+}
+
+/* PRENDEDOR */
+.foto::before {
+    content: '📎';
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+}
+
+/* FOTO INTERNA (fade) */
+.varal {
+    position: relative;
+}
+
+.foto-inner {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 32px);
+}
+
+.foto-inner img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 1.6s ease-in-out;
+}
+
+.foto-inner img.ativa {
+    opacity: 1;
+}
+
+/* TEXTO DA POLAROID */
+.foto p {
+    margin-top: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #ff4d6d;
+    text-align: center;
+}
+
+/* CORAÇÕES */
+.hearts::before,
+.hearts::after {
+    content: '❤️';
+    position: fixed;
+    font-size: 36px;
+    animation: float 9s infinite linear;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.hearts::before {
+    left: 20%;
+    bottom: -10%;
+}
+
+.hearts::after {
+    left: 70%;
+    bottom: -15%;
+    animation-delay: 3s;
+}
+
+/* CELULAR */
+.celular-section {
+    text-align: center;
+}
+
+.celular {
+    width: 290px;
+    height: 520px;
+    margin: 0 auto;
+    border-radius: 36px;
+    background: #000;
+    border: 7px solid #222;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.barra-superior {
+    height: 54px;
+    background: #111;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    gap: 10px;
+}
+
+.barra-superior img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.barra-superior .nome {
+    flex: 1;
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.tela {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* MENSAGENS */
+.msg {
+    max-width: 58%;
+    padding: 10px 14px;
+    border-radius: 18px;
+    font-size: 0.95rem;
+    animation: fadeUp 0.3s ease forwards;
+}
+
+.msg.dela {
+    background: #262626;
+    color: #fff;
+    align-self: flex-start;
+}
+
+.msg.sua {
+    background: #3797f0;
+    color: #fff;
+    align-self: flex-end;
+}
+
+/* CARTA FINAL */
+.carta-final {
+    text-align: center;
+}
+
+.carta-final p {
+    font-size: 1.2rem;
+    color: #ff6b8a;
+    line-height: 1.7rem;
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.25); }
     100% { transform: scale(1); }
 }
 
-/* contador */
-.contador-box {
-    text-align: center;
-    margin-top: -40px;
-}
-
-.texto-info {
-    font-size: 26px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #800020;
-    animation: descer 1.4s ease forwards;
-}
-
-.contador {
-    font-size: 30px;
-    font-weight: bold;
-    color: #b3003c;
-    text-shadow: 0 0 12px rgba(255,40,80,0.5);
-    animation: aparecer 1.8s ease forwards;
+@keyframes float {
+    from { transform: translateY(0); opacity: 0.6; }
+    to { transform: translateY(-140vh); opacity: 0; }
 }
 
 
-/* ❤️ animação de corações no fundo ❤️ */
+@media (max-width: 480px) {
 
-.hearts::before,
-.hearts::after {
-    content: "❤️";
-    position: absolute;
-    font-size: 40px;
-    animation: flutuar 8s infinite linear;
-    opacity: 0.5;
-}
-
-.hearts::before {
-    left: 15%;
-    top: 120%;
-    animation-delay: 1s;
-}
-
-.hearts::after {
-    left: 70%;
-    top: 130%;
-    animation-delay: 3s;
-}
-
-@keyframes flutuar {
-    0% {
-        transform: translateY(0) scale(1);
-        opacity: 0.6;
+    body {
+        font-size: 16px;
     }
-    100% {
-        transform: translateY(-150vh) scale(1.4);
-        opacity: 0;
+
+    section {
+        padding: 32px 16px;
+        margin: 16px 10px;
     }
+
+    .nome {
+        font-size: 1.15rem;
+    }
+
+    .Titulo {
+        font-size: 1.9rem;
+        margin-top: 20px;
+    }
+
+    .frase-romantica {
+        font-size: 1.05rem;
+        line-height: 1.5rem;
+    }
+
+    .contador {
+        font-size: 1.5rem;
+    }
+
+    /* VARAL */
+    .galeria {
+        gap: 14px;
+    }
+
+    .foto {
+        width: 110px;
+        transform: rotate(0deg);
+    }
+
+    .foto::before {
+        font-size: 18px;
+        top: -18px;
+    }
+
+    /* CHAT */
+    .celular {
+        width: 100%;
+        max-width: 260px;
+        height: 470px;
+    }
+
+    .msg {
+        max-width: 78%;
+        font-size: 0.9rem;
+    }
+
+    /* CARTA FINAL */
+    .carta-final p {
+        font-size: 1.05rem;
+        line-height: 1.6rem;
+    }
+}
+@media (min-width: 1200px) {
+    body {
+        font-size: 18px;
+    }
+
+    
 }
