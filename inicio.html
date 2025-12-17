@@ -1,26 +1,37 @@
 <!DOCTYPE html>
-<html lang="pt-Br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="./css/inicio.css">
+
+    <!-- Fonte -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
     <link rel="icon" type="image/png" href="./img/logo.png">
     <title>Para o meu Amor</title>
 </head>
 
 <body>
 
-    <!-- efeitos de corações ao fundo -->
     <div class="hearts"></div>
 
+    <!-- TOPO -->
     <section class="conteiner-principal">
         <p class="nome">Priscila <i class="bi bi-suit-heart"></i> Baruque</p>
 
         <h1 class="Titulo">
-            Eu te amo <i class="bi bi-suit-heart-fill"></i>
+            Eu te amo 🤍</i>
         </h1>
+
+        <p class="frase-romantica">
+            “Você é o capítulo mais bonito que Deus escreveu na minha vida.”
+        </p>
 
         <main class="contador-box">
             <p class="texto-info">Juntos há:</p>
@@ -28,7 +39,79 @@
         </main>
     </section>
 
-    <script src="./js/contador.js"></script>
-</body>
+    <!-- GALERIA / VARAL -->
+    <section class="galeria-section">
+        <h2 class="titulo-sessao">Nossas Fotos 💕</h2>
 
+        <div class="galeria varal-container">
+
+            <!-- POLAROID 1 -->
+            <div class="foto varal">
+                <div class="foto-inner">
+                    <img src="./img/fts/1.jpeg" class="ativa">
+                </div>
+                <p>Eu</p>
+            </div>
+
+            <!-- POLAROID 2 -->
+            <div class="foto varal">
+                <div class="foto-inner">
+                    <img src="./img/fts/momento2.1.jpeg" class="ativa">
+                    <img src="./img/fts/momento2.2.jpeg">
+                </div>
+                <p>amo</p>
+            </div>
+
+            <!-- POLAROID 3 -->
+            <div class="foto varal">
+                <div class="foto-inner">
+                    <img src="./img/fts/moneto3.1.jpeg" class="ativa">
+                    <img src="./img/fts/moneto3.2.jpeg">
+                    <img src="./img/fts/moneto3.3.jpeg" alt="">
+                    <img src="./img/fts/moneto3.4.jpeg" alt="">
+                    <img src="./img/fts/moneto3.5.jpeg" alt="">
+                    <img src="./img/fts/moneto3.6.jpeg" alt="">
+                    <img src="./img/fts/moneto3.7.jpeg" alt="">
+                </div>
+                <p>Seu sorriso…</p>
+            </div>
+
+             <!-- POLAROID 4 -->
+            <div class="foto varal">
+                <div class="foto-inner">
+                    <img src="./img/fts/momento 4.1.jpeg" class="ativa">
+                    <img src="./img/fts/momento 4.2.jpeg" class="ativa">
+                </div>
+                <p>Seus olhos</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CELULAR / CONVERSAS -->
+    <section class="celular-section">
+        <h2 class="titulo-sessao">Nossas Primeiras Conversas ❤️</h2>
+
+        <div class="celular">
+            <div class="barra-superior">
+                <img src="./img/ftPefil.avif" alt="">
+                <p class="nome">prii_li</p>
+                <i class="bi bi-telephone-fill"></i>
+            </div>
+
+            <div class="tela" id="tela-chat"></div>
+        </div>
+    </section>
+
+    <!-- CARTA FINAL -->
+    <section class="carta-final">
+        <h2 class="titulo-sessao"><a href="./carta.html">Carta para você 💌 clica aqui!!!!</a></h2>
+    </section>
+
+    <!-- SCRIPTS -->
+    <script src="./js/contador.js"></script>
+    <script src="./js/conversa.js"></script>
+    <script src="./js/galeria.js"></script>
+
+</body>
 </html>
