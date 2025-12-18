@@ -1,47 +1,63 @@
-const tela = document.getElementById("tela-chat");
-const conversas = [
-    { quem: "sua", texto: "Q bonitinho" },
-    { quem: "dela", texto: "Obgdoo" },
-    { quem: "dela", texto: "Tudo bem?" },
-    { quem: "sua", texto: "De nda " },
-    { quem: "sua", texto: "Tudo bem sim" },
-    { quem: "sua", texto: "E com vc?" }
-];
-let index = 0;
+document.addEventListener("DOMContentLoaded", () => {
 
-function mostrarDigitando() {
-    const typing = document.createElement("div");
-    typing.classList.add("typing");
-    typing.id = "typing";
-    typing.innerHTML = `<div class="dot"></div><div class="dot"></div><div class="dot"></div>`;
-    tela.appendChild(typing);
-    tela.scrollTop = tela.scrollHeight;
-}
+    const tela = document.getElementById("tela-chat");
+    if (!tela) return; // segurança total
 
-function removerDigitando() {
-    const typing = document.getElementById("typing");
-    if(typing) typing.remove();
-}
+    const conversas = [
+        { quem: "sua", texto: "Q bonitinho" },
+        { quem: "dela", texto: "Obgdoo" },
+        { quem: "dela", texto: "Tudo bem?" },
+        { quem: "sua", texto: "De nda" },
+        { quem: "sua", texto: "Tudo bem sim" },
+        { quem: "sua", texto: "E com vc?" }
+    ];
 
-function adicionarMensagem() {
-    if(index >= conversas.length) return;
-    const msg = conversas[index];
-    index++;
-    const el = document.createElement("div");
-    el.classList.add("msg", msg.quem);
-    el.textContent = msg.texto;
-    tela.appendChild(el);
-    tela.scrollTop = tela.scrollHeight;
-}
+    let index = 0;
 
-function iniciarConversa() {
-    if(index >= conversas.length) return;
-    mostrarDigitando();
-    setTimeout(() => {
-        removerDigitando();
-        adicionarMensagem();
-        setTimeout(iniciarConversa, 900);
-    }, 1500);
-}
+    function mostrarDigitando() {
+        const typing = document.createElement("div");
+        typing.className = "typing";
+        typing.id = "typing";
+        typing.innerHTML = `
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        `;
+        tela.appendChild(typing);
+        tela.scrollTop = tela.scrollHeight;
+    }
 
-iniciarConversa();
+    function removerDigitando() {
+        const typing = document.getElementById("typing");
+        if (typing) typing.remove();
+    }
+
+    function adicionarMensagem() {
+        if (index >= conversas.length) return;
+
+        const msg = conversas[index++];
+        const el = document.createElement("div");
+
+        el.classList.add("msg", msg.quem);
+        el.textContent = msg.quem === "dela"
+            ? msg.texto
+            : msg.texto;
+
+        tela.appendChild(el);
+        tela.scrollTop = tela.scrollHeight;
+    }
+
+    function iniciarConversa() {
+        if (index >= conversas.length) return;
+
+        mostrarDigitando();
+
+        setTimeout(() => {
+            removerDigitando();
+            adicionarMensagem();
+            setTimeout(iniciarConversa, 900);
+        }, 1400);
+    }
+
+    iniciarConversa();
+});
