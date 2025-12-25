@@ -118,7 +118,7 @@ section {
 /* POLAROID */
 .foto {
     position: relative;
-    width: 170px;
+    width: 200px;
     aspect-ratio: 1 / 1.15;
     background: #fff;
     border-radius: 14px;
@@ -346,7 +346,7 @@ section {
     }
 
     .foto {
-        width: 120px;
+        width: 145px;
         transform: rotate(0deg);
     }
 
