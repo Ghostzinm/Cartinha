@@ -253,11 +253,13 @@ section {
 
 /* MENSAGENS */
 .msg {
-    max-width: 80%;
+    max-width: 75%;
     padding: 10px 14px;
     border-radius: 18px;
     font-size: 0.95rem;
     animation: fadeUp 0.3s ease forwards;
+    display: flex;
+    text-align: left;
 }
 
 .msg.dela {
