@@ -253,7 +253,7 @@ section {
 
 /* MENSAGENS */
 .msg {
-    max-width: 58%;
+    max-width: 80%;
     padding: 10px 14px;
     border-radius: 18px;
     font-size: 0.95rem;
@@ -282,6 +282,22 @@ section {
     color: #ff6b8a;
     line-height: 1.7rem;
 }
+
+.msg.blur {
+    filter: blur(6px);
+    opacity: 0.35;
+    animation: subirRapido 0.25s linear forwards;
+}
+
+@keyframes subirRapido {
+    from {
+        transform: translateY(40px);
+    }
+    to {
+        transform: translateY(-180px);
+    }
+}
+
 
 /* ANIMAÇÕES */
 @keyframes fadeDown {
